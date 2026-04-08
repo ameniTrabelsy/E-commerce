@@ -1,5 +1,6 @@
 package com.codeWithProjects.ecom.utils;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;
 
@@ -18,7 +19,8 @@ import java.util.function.Function;
 @Component
 public class JwtUtil {
 
-    public static final String SECRET = "t9XryUC7AG36Lxh2p2V8Q1TTw2Pw0B9sj4jsdZw6sbA=";
+    @Value("${jwt.secret}")
+    private String SECRET;
 
     public String generateToken(String userName) {
         Map<String, Object> claims = new HashMap<>();
